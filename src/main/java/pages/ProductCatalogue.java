@@ -1,4 +1,4 @@
-package academy;
+package pages;
 
 import abstractComponents.AbstractComponents;
 import org.openqa.selenium.By;
@@ -48,5 +48,6 @@ public class ProductCatalogue extends AbstractComponents {
         waitForElementToAppear(toastMessageBy);
         waitForElementToAppear(animatingBy);
         waitForElementToDisappear(spinner);
+
     }
 }

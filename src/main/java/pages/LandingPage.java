@@ -1,4 +1,4 @@
-package academy;
+package pages;
 
 import abstractComponents.AbstractComponents;
 import org.openqa.selenium.WebDriver;
@@ -31,7 +31,7 @@ public class LandingPage extends AbstractComponents {
         return new ProductCatalogue(driver);
     }
 
-    public void navigateToMainPage() {
+    public void navigateToLandingPage() {
         driver.get("https://rahulshettyacademy.com/client");
     }
 }

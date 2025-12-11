@@ -1,4 +1,4 @@
-package academy;
+package pages;
 
 import abstractComponents.AbstractComponents;
 import org.openqa.selenium.By;
@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,16 +21,19 @@ public class CheckOutPage extends AbstractComponents {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy (css = "[placeholder='Select Country']")
+    @FindBy(css = "[placeholder='Select Country']")
     WebElement countryInput;
 
     By countryListBy = By.cssSelector(".ta-results");
 
-    @FindBy (css = ".ta-results button")
+    @FindBy(css = ".ta-results button")
     List<WebElement> countryOptions;
 
-    @FindBy (css = ".action__submit")
+    @FindBy(css = ".action__submit")
     WebElement placeOrderBtn;
+
+    @FindBy(css = ".payment__types")
+    WebElement paymentMethodButtons;
 
     public void sendKeyToCountrySelection(String keyword) {
         Actions actions = new Actions(driver);
@@ -51,6 +53,7 @@ public class CheckOutPage extends AbstractComponents {
                 .filter(country -> country.getText().equalsIgnoreCase(countryName)).findFirst();
 
     }
+
     public void selectCountry(String countryName) {
         if (getOneCountryOption(countryName).isPresent()) {
             WebElement countryToClick = getOneCountryOption(countryName).get();
@@ -66,6 +69,8 @@ public class CheckOutPage extends AbstractComponents {
         return new ConfirmationPage(driver);
     }
 
-
+    public boolean checkPaymentMethodsDisplayed() {
+        return paymentMethodButtons.isDisplayed();
+    }
 
 }

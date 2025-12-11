@@ -1,4 +1,4 @@
-package academy;
+package pages;
 
 import abstractComponents.AbstractComponents;
 import org.openqa.selenium.WebDriver;
