@@ -1,11 +1,11 @@
-package academy;
+package tests;
 
 import org.testng.annotations.Test;
 import pages.*;
 import org.testng.Assert;
 import testComponents.BaseTest;
 
-public class StandAloneTest extends BaseTest {
+public class SubmitOrderTest extends BaseTest {
     String productName = "ZARA COAT 3";
     String countryKey = "tur";
     String countryName = "Turkey";
