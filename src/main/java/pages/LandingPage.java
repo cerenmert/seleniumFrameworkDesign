@@ -24,11 +24,19 @@ public class LandingPage extends AbstractComponents {
     @FindBy(id = "userPassword")
     WebElement userPassword;
 
+    @FindBy (css = "[class*='toast-message']")
+    WebElement errorMessageForInvalidPassword;
+
     public ProductCatalogue loginToApp(String email, String password) {
         userEmail.sendKeys(email);
         userPassword.sendKeys(password);
         submit.click();
         return new ProductCatalogue(driver);
+    }
+
+    public String getErrorMessageForInvalidPassword() {
+        waitForWebElementToAppear(errorMessageForInvalidPassword);
+        return errorMessageForInvalidPassword.getText();
     }
 
     public void navigateToLandingPage() {

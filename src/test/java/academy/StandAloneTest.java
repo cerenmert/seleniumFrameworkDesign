@@ -5,17 +5,17 @@ import pages.*;
 import org.testng.Assert;
 import testComponents.BaseTest;
 
-import java.io.IOException;
-
 public class StandAloneTest extends BaseTest {
+    String productName = "ZARA COAT 3";
+    String countryKey = "tur";
+    String countryName = "Turkey";
+    String confirmationText = "THANKYOU FOR THE ORDER.";
+    String email = "ceren1481@gmail.com";
+    String password = "1234";
+
     @Test
-    public void submitOrder() throws InterruptedException, IOException {
-        String productName = "ZARA COAT 3";
-        String countryKey = "tur";
-        String countryName = "Turkey";
-        String confirmationText = "THANKYOU FOR THE ORDER.";
-        LandingPage landingPage = launchApplication();
-        ProductCatalogue productCatalogue = landingPage.loginToApp("ceren1481@gmail.com", "Crnmert1481:");
+    public void submitOrder()  {
+        ProductCatalogue productCatalogue = landingPage.loginToApp(email, password);
         productCatalogue.addProductToCart(productName);
         CartPage cartPage = productCatalogue.goToCartPage();
         Boolean match = cartPage.checkProductNameInCart(productName);
@@ -29,7 +29,5 @@ public class StandAloneTest extends BaseTest {
         checkOutPage.selectCountry(countryName);
         ConfirmationPage confirmationPage = checkOutPage.submitOrder();
         Assert.assertEquals(confirmationPage.getOrderConfirmationText(), confirmationText);
-        Thread.sleep(1000);
-        driver.close();
     }
 }
