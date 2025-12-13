@@ -23,9 +23,9 @@ public class BaseTest {
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/resources/GlobalProperties");
         prop.load(fis);
-        String browserName= prop.getProperty("browser");
+        String browserName = prop.getProperty("browser");
 
-        if(browserName.equalsIgnoreCase("chrome")){
+        if (browserName.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
 
@@ -42,11 +42,10 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public LandingPage launchApplication() throws IOException {
+    public void launchApplication() throws IOException {
         driver = initializeDriver();
         landingPage = new LandingPage(driver);
         landingPage.navigateToLandingPage();
-        return landingPage;
     }
 
     @AfterMethod

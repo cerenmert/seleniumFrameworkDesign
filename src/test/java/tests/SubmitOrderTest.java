@@ -1,20 +1,19 @@
 package tests;
 
-import org.testng.annotations.Test;
-import pages.*;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import pages.CartPage;
+import pages.CheckOutPage;
+import pages.ConfirmationPage;
+import pages.ProductCatalogue;
 import testComponents.BaseTest;
 
 public class SubmitOrderTest extends BaseTest {
-    String productName = "ZARA COAT 3";
-    String countryKey = "tur";
-    String countryName = "Turkey";
     String confirmationText = "THANKYOU FOR THE ORDER.";
-    String email = "ceren1481@gmail.com";
-    String password = "1234";
 
-    @Test
-    public void submitOrder()  {
+    @Test(dataProvider = "getData")
+    public void submitOrder(String email, String password, String productName, String countryKey, String countryName) {
         ProductCatalogue productCatalogue = landingPage.loginToApp(email, password);
         productCatalogue.addProductToCart(productName);
         CartPage cartPage = productCatalogue.goToCartPage();
@@ -29,5 +28,13 @@ public class SubmitOrderTest extends BaseTest {
         checkOutPage.selectCountry(countryName);
         ConfirmationPage confirmationPage = checkOutPage.submitOrder();
         Assert.assertEquals(confirmationPage.getOrderConfirmationText(), confirmationText);
+    }
+
+    @DataProvider
+    public static Object[][] getData() {
+        return new Object[][]{
+                {"ceren1481@gmail.com", "1234", "ZARA COAT 3", "tur", "Turkey"},
+                {"test@gmail.com", "1234", "ADIDAS ORIGINAL", "ind", "India"}
+        };
     }
 }
