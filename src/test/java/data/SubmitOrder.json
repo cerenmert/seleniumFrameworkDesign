@@ -1,0 +1,16 @@
+[
+  {
+    "email": "ceren1481@gmail.com",
+    "password": "1234",
+    "productName": "ZARA COAT 3",
+    "countryKey": "tur",
+    "country": "Turkey"
+  },
+  {
+    "email": "test@gmail.com",
+    "password": "1234",
+    "productName": "ADIDAS ORIGINAL",
+    "countryKey": "ind",
+    "country": "India"
+  }
+]
