@@ -28,8 +28,8 @@ public class SubmitOrderTest3 extends BaseTest {
         checkOutPage.sendKeyToCountrySelection(input.get("countryKey"));
         checkOutPage.waitForCountryListToAppear();
         Assert.assertNotEquals(checkOutPage.getTheCountryListAfterSendingKey(), null);
-        checkOutPage.getOneCountryOption(input.get("countryName"));
-        checkOutPage.selectCountry(input.get("countryName"));
+        checkOutPage.getOneCountryOption(input.get("country"));
+        checkOutPage.selectCountry(input.get("country"));
         ConfirmationPage confirmationPage = checkOutPage.submitOrder();
         Assert.assertEquals(confirmationPage.getOrderConfirmationText(), confirmationText);
     }

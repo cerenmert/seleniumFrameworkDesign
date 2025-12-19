@@ -26,7 +26,7 @@ public class CheckOutPage extends AbstractComponents {
 
     By countryListBy = By.cssSelector(".ta-results");
 
-    @FindBy(css = ".ta-results button")
+    @FindBy(css = ".ta-results .ng-star-inserted")
     List<WebElement> countryOptions;
 
     @FindBy(css = ".action__submit")
@@ -49,9 +49,10 @@ public class CheckOutPage extends AbstractComponents {
     }
 
     public Optional<WebElement> getOneCountryOption(String countryName) {
-        return getTheCountryListAfterSendingKey().stream()
-                .filter(country -> country.getText().equalsIgnoreCase(countryName)).findFirst();
-
+        return getTheCountryListAfterSendingKey()
+                .stream()
+                .filter(country -> country.getText().equalsIgnoreCase(countryName))
+                .findFirst();
     }
 
     public void selectCountry(String countryName) {
