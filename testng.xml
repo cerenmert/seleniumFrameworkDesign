@@ -11,4 +11,14 @@
             <class name="tests.ErrorValidationTest"/>
         </classes>
     </test>
+    <test name="Test2">
+        <classes>
+            <class name="tests.SubmitOrderTest2"/>
+        </classes>
+    </test>
+    <test name="Test3">
+        <classes>
+            <class name="tests.SubmitOrderTest3"/>
+        </classes>
+    </test>
 </suite>
