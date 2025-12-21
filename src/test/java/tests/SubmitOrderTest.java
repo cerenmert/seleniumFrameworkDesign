@@ -34,7 +34,7 @@ public class SubmitOrderTest extends BaseTest {
     public static Object[][] getData() {
         return new Object[][]{
                 {"ceren1481@gmail.com", "1234", "ZARA COAT 3", "tur", "Turkey"},
-                {"test@gmail.com", "1234", "ADIDAS ORIGINAL", "ind", "India"}
+                {"ceren1481@gmail.com", "1234", "ADIDAS ORIGINAL", "ind", "India"}
         };
     }
 }
